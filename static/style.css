@@ -1,0 +1,365 @@
+body {
+    width: 1000px;
+    margin: auto;
+    font-family:helvetica, sans-serif;
+    background-color: rgba(12, 218, 63, 0.2);
+}
+
+main {
+    padding-top: 60px;
+}
+
+#nav {
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-bottom: 2px solid #12c064;
+    border-top: 2px solid #12c064;
+    padding: 2px 0;
+}
+
+#nav menu {
+    width: 1000px;
+    position: relative;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+#nav_links
+{
+    position: absolute;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#nav_logo
+{
+    position: absolute;
+    right: 0px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-top: 3px double #12c064;
+}
+
+.footer.footer_feed {
+    margin-top: -10px;
+}
+
+a {
+    color:#12c064;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#00a74f;
+}
+
+h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; }
+
+h1 {
+    border-bottom:1px solid #bbb;
+    padding:0 0 10px 0;
+    margin:10px 0 20px 0;
+}
+
+h2 {
+    margin:30px 0 20px;
+}
+
+#content {
+    padding:30px 100px;
+}
+
+
+/* FEED bar */
+.feed_container {
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #bbb;
+    font-size: 2em;
+}
+
+.feed_buttons{
+    display: flex;
+    position: absolute;
+    right: 0px;
+}
+
+.button.feed_button {
+    position: relative;
+    font-weight:bold;
+    background:#12c064;
+    color:#fff;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+.button.feed_button_review {
+    margin-left: 10px;
+}
+
+
+/* Tickets and reviews */
+.ticket_and_review_block /* flex container */
+{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+    border: 1px solid #bbb;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.ticket_and_review_block.notcentered {
+    justify-content: left;
+    padding: 0px 20px;
+}
+
+.retrieved_ticket
+{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+    border: 1px solid #bbb;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+/* Profile */
+.profile_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 50px;
+    margin-left: -20px;
+}
+.profile_item {
+    width: auto;
+    border: 1px solid blue;
+}
+.profile_item {
+    margin: 10px;
+    line-height: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
+
+
+/* General, tickets, reviews... */
+article
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    padding: 10px 10px 20px 10px;
+}
+
+.align_column {
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.pagination {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.break {
+    width: 1px;
+    height: 100%;
+    background: #bbb;
+}
+
+.break.horizontal {
+    height: 1px;
+    width: 100%;
+    background: #bbb;
+  }
+
+#ticket_review_img {
+    margin: 0px 10px 10px 0px;
+}
+
+#ticket_review_ratingimg {
+    height: 15px;
+    position: relative;
+    margin: 0px 10px;
+}
+
+#date
+{
+    position: absolute;
+    right: 10px;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+#ticket_reply
+{
+    position: absolute;
+    right: 10px;
+}
+
+
+/* FORMS */
+form {
+    overflow:auto;
+}
+
+form p {
+    width:100%;
+    overflow:auto;
+}
+
+label {
+    float:left;
+    clear:both;
+    color:#333;
+    margin-bottom:4px;
+}
+
+input, textarea {
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background:#efefef;
+    border: 1px solid black ;
+    border-radius: 10px;
+    padding:6px 10px;
+    font-size:14px;
+}
+
+.inline{
+    margin-left: 5;
+    padding: 0;
+}
+.inline li {
+    list-style:none;
+    float: left;
+    padding-right: 12px;
+}
+
+
+/* BUTTONS */
+.button {
+    font-weight: bold;
+    background:#12c064;
+    color:#fff;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    border-style: none;
+    border-radius: 0px;
+}
+
+.button.unfollow {
+    font-size: 0.6em;
+    padding: 5px 10px;
+}
+
+.button:hover {
+    color:#08793d;
+    transition: 0.4s;
+}
+
+
+.button.got_reply {
+    background:#666666;
+    color:#a7a7a7;
+    cursor: default;
+}
+
+.count {
+    color:#12c064;
+    border:3px solid #12c064;
+    background-color: #d1ffe7;
+    cursor: default;
+    border-radius:26px;
+    padding:10px 20px;
+    margin:20px 10px 0;
+}
+
+/* messages */
+
+ul.messages li.success,
+ul.messages li.warning,
+ul.messages li.error {
+    margin:0;
+    padding:14px 20px;
+    list-style:none;
+    color:#fff;
+}
+
+ul.messages li.success { background:#81ce81; }
+ul.messages li.success a { color:#0ac33e; }
+
+ul.messages li.error { background:#a30029; color:#e9828e; }
+ul.messages li.error a { color:#e9828e; }
+
+ul.messages li.warning { background:#de9404; }
+ul.messages li.warning a { color:#f49000; }
+
+ul.messages li a.close {
+    margin:0;
+    float:right;
+    opacity:1;
+    border:0;
+    box-shadow:none;
+    text-shadow:none;
+}
+
+
+/* users */
+.user-profile {
+    border-radius: 50%;
+}
+
+.user-profile_mini {
+    position: absolute;
+    /* border: 1px solid #12c064; */
+    border-radius: 50%;
+    height: 30px;
+    margin-left: 5px;
+    top: 2px;
+}
+
+.users_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #FFF;
+    border: 1px solid #bbb;
+    padding: 40px 0px 0px 0px;
+}
+
+.users_list_unit {
+    padding: 0px 30px 50px 30px;
+    text-align: center;
+}
