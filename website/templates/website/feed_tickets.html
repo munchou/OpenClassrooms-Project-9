@@ -1,0 +1,50 @@
+{% load website_extras %}
+<div class="ticket_and_review_block">
+    <article>
+        <div class="row" style="margin-bottom:10px">
+            <div>
+                <u style="color: #12c064;">{{ instance.user }}</u>
+            </div>
+            <div><img class="user-profile_mini" src="/media/{{ instance.user.profile.profile_photo }}"></div>
+            <div style="margin-left: 40px;">asked for a review</div>
+            <div id="date">{{ instance.time_created }}</div>
+        </div>
+
+        <div class="row" style="margin-bottom:10px">
+            <div id="ticket_review_img">{% if instance.image %}<img src="{{ instance.image.url }}" style="border: 1px solid #424242;">{% endif %}</div>
+            <div>
+                <b>{{ instance.title }}</b><br/><br/>
+                {{ instance.description|linebreaks }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+                {% if request.user.profile == instance.user.profile %}
+                    <div><a href="{% url 'editticket' instance.id %}" class="button">Edit that ticket</a>
+                    <a href="{% url 'deleteticket' instance.id %}" class="button">Delete that ticket</a></div>
+                {% else %}
+                    <p></p>
+                {% endif %}
+            </div>
+            <div id="ticket_reply">
+                {% comment %} {% if request.user.profile in instance.user.profile.followed_by.all or request.user.profile == instance.user.profile %} {% endcomment %}
+                    {% if instance.reply == False %}
+                        <a href="{% url 'replyticket' instance.id %}" class="button">Reply</a>
+
+                    {% else %}
+                        {% for review in tickets_and_reviews_all %}
+                            {% if review|model_type == "Review" %}
+                                {% if review.ticket == instance %}
+                                    <a class="button got_reply">Got a reply from {{ review.user }}</a>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                {% comment %} {% endif %} {% endcomment %}
+            </div>
+        </div>
+
+    </article>
+</div>

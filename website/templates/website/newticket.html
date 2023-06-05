@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="feed_container">Ask for a review, post a ticket!</div>
+    <div class="ticket_and_review_block notcentered">
+        <form method="post" enctype="multipart/form-data">
+            {{ ticket_form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="button">Publish that ticket</button>
+        </form>
+    </div>
+{% endblock content %}

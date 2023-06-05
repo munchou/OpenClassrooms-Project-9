@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="feed_container">Edit the review</div>
+    
+    <div class="ticket_and_review_block notcentered" style="flex-direction: column;">
+        <div>
+            <form method="post" enctype="multipart/form-data">
+                {{ edit_review.as_p }}
+                {% csrf_token %}
+                <button type="submit" class="button">Update</button>
+            </form>
+        </div>
+
+
+        <div class="feed_container">Delete the review</div>
+
+        <div>
+            <form method="post">
+                {{ delete_review }}
+                {% csrf_token %}
+                <button type="submit" class="button">Delete</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

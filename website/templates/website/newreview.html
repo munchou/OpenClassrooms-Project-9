@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="feed_container">Write a review and share it!</div>
+    <div class="ticket_and_review_block notcentered">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ ticket_form.as_p }}
+            {{ review_form.as_p }}
+            <button type="submit" class="button">Publish that review</button>
+        </form>
+    </div>
+{% endblock content %}

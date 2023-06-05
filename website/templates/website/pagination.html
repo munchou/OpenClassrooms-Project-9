@@ -1,0 +1,26 @@
+{% comment %} Shows the pagination only if the number of total items is greater than the limit of items per page. {% endcomment %}
+{% comment %} {% if tickets_and_reviews.paginator.count > tickets_and_reviews.paginator.per_page %} {% endcomment %}
+
+<div class="pagination">
+    <div style="display: flex; align-items:center;">
+        {% if tickets_and_reviews.has_previous %}
+            <a href="?page=1"><img src="/media/website/page_last.png" height="25px" style="transform: scaleX(-1); margin-right: 5px;"></a>
+            <a href="?page={{ tickets_and_reviews.previous_page_number }}"><img src="/media/website/page_next.png" height="25px" style="transform: scaleX(-1); margin-right: 5px;"></a>
+        {%else %}
+            <img src="/media/website/page_last_none.png" height="25px" style="transform: scaleX(-1); margin-right: 5px;">
+            <img src="/media/website/page_next_none.png" height="25px" style="transform: scaleX(-1); margin-right: 5px;">
+        {% endif %}
+
+            <b>Page {{ tickets_and_reviews.number }} / {{ tickets_and_reviews.paginator.num_pages }}</b>
+
+        {% if tickets_and_reviews.has_next %}
+            <a href="?page={{ tickets_and_reviews.next_page_number }}"><img src="/media/website/page_next.png" height="25px" style="margin-left: 5px;"></a>        
+            <a href="?page={{ tickets_and_reviews.paginator.num_pages }}"><img src="/media/website/page_last.png" height="25px" style="margin-left: 5px;"></a>
+        {%else %}
+            <img src="/media/website/page_next_none.png" height="25px" style="margin-left: 5px;">
+            <img src="/media/website/page_last_none.png" height="25px" style="margin-left: 5px;">
+        {% endif %}
+    </div>
+</div>
+
+{% comment %} {% endif %} {% endcomment %}

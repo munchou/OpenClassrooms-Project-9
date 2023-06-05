@@ -1,0 +1,23 @@
+
+<div class="ticket_and_review_block">
+    <article>
+        <div class="row" style="margin-bottom:10px">
+            <div>
+                <u style="color: #12c064;">{{ instance.ticket.user }}</u>
+            </div>
+            <div><img class="user-profile_mini" src="/media/{{ instance.ticket.user.profile.profile_photo }}"></div>
+            <div style="margin-left: 40px;">asked for a review</div>
+            <div id="date">{{ instance.ticket.time_created }}</div>
+        </div>
+
+        <div class="row" style="margin-bottom:10px">
+            <div id="ticket_review_img">{% if instance.ticket.image %}<img src="{{ instance.ticket.image.url }}" style="border: 1px solid #424242;">{% endif %}</div>
+            <div>
+                <b>{{ instance.ticket.title }}</b><br/><br/>
+                {{ instance.ticket.description|linebreaks }}
+            </div>
+        </div>
+
+
+    </article>
+</div>

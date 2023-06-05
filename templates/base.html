@@ -1,0 +1,76 @@
+{% load static %}
+<html>
+
+    <head>
+        <title>LITreview</title>
+        <link href="{% static 'style.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="nav">
+            {% if request.user.is_authenticated %}
+            <menu>
+            <div>
+                <img class="user-profile" src="/media/{{ request.user.profile.profile_photo }}" height="50px" style="margin-right: 5px;">
+            </div>
+            <div>
+                <a href="{% url 'editprofile' %}">{{ request.user }}</a>
+            </div>
+            <div id="nav_links">
+                <div>
+                    <a href="{% url 'feed' %}">My feed</a> | 
+                    <a href="{% url 'subscribe' %}">Subscriptions</a> | 
+                    <a href="{% url 'userposts' %}">My content</a> | 
+                    <a href="/404/">404 page</a> | 
+                    <a href="{% url 'logout' %}">Logout</a>
+                </div>
+                <div><img src="/media/website/mainlogo.png" height="40px" style="margin-left: 10px;"></div>
+            </div>
+            </menu>
+
+            {% else %}
+            <menu>
+            <div>
+                <img class="user-profile" src="/media/profile_pics/default.png" height="50px" style="margin-right: 5px;">
+            </div>
+            <div id="nav_links">
+                <div>
+                    <a href="{% url 'login' %}">Log in</a> | 
+                    <a href="{% url 'signup' %}">Sign up</a>
+                </div>
+                <div><img src="/media/website/mainlogo.png" height="40px" style="margin-left: 10px;"></div>
+            </div>
+            </menu>
+
+            {% endif %}
+        </div>
+
+        <main>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% block content %}        
+            {% endblock content %}
+        </main>
+        <footer>
+        {% if request.path == "/home/" %} {% comment %} To get the adjusted footer {% endcomment %}
+            <div class="footer footer_feed">
+                <p>
+                    LITReview - <a href="https://www.munchou.com">© 2023 munchou</a>
+                </p>
+            </div>
+        {% else %}
+            <div class="footer">
+                <p>
+                    LITReview - <a href="https://www.munchou.com">© 2023 munchou</a>
+                </p>
+            </div>
+        {% endif %}
+        </footer>
+    </body>
+</html>

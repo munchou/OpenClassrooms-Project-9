@@ -1,0 +1,28 @@
+{% load website_extras %}
+
+{% if instance|model_type == "Review" %}
+<div class="ticket_and_review_block">
+    <article>
+        <div class="row">
+            <div>                    
+                <b>{{ instance.headline }}</b> <img src="../media/ratings/rating_{{ instance.rating }}.png" id="ticket_review_ratingimg"> by <u style="color: #12c064;">{{ instance.user }}</u>
+            </div>
+            <div><img class="user-profile_mini" src="/media/{{ instance.user.profile.profile_photo }}"></div>
+            <div id="date">{{ instance.time_created }}</div>
+        </div>
+
+        <div>
+            {{ instance.comment|linebreaks }}
+        </div>
+
+        {% include 'website/retrieved_ticket.html' %}
+
+        <div>
+            {% if request.user.profile == instance.user.profile %}
+                <div><a href="{% url 'editreview' instance.id %}" class="button">Edit that review</a>
+                <a href="{% url 'deletereview' instance.id %}" class="button">Delete that review</a></div>            
+            {% endif %}
+        </div>
+    </article>
+</div>
+{% endif %}

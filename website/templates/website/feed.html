@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load website_extras %}
+
+{% block content %}
+
+    <div class="feed_container">
+        <div class="row">
+            <div>Your FEED</div>
+            <div class="feed_buttons">
+                <a href="{% url 'newticket' %}" class="button feed_button">Ask for a review</a>
+                <a href="{% url 'newreview' %}" class="button feed_button feed_button_review">Write a review</a>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+    {% if tickets_and_reviews.paginator.count > tickets_and_reviews.paginator.per_page %}
+        {% include 'website/pagination.html' %}
+    {% endif %}
+    </div>
+
+    <div>
+
+    {% for instance in tickets_and_reviews %}
+
+        {% if instance.content_type == "TICKET" %}
+                {% include 'website/feed_tickets.html' %}
+
+        {% elif instance.content_type == "REVIEW" %}
+                {% include 'website/feed_reviews.html' %}
+
+        {% endif %}
+
+    {% endfor %}
+    </div>
+
+    {% if tickets_and_reviews.paginator.count > tickets_and_reviews.paginator.per_page %}
+        {% include 'website/pagination.html' %}
+    {% endif %}
+
+{% endblock content %}
