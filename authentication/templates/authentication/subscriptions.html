@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <div class="feed_container">{{ user }}'s profile</div>
+
+        <form method="post" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+            <div>{% csrf_token %}
+            {{ user_form.as_p }}</div>
+            <input type="submit" value="Follow that user" class="button" style="height: 50%; margin-left: 20px;">
+        </form>
+
+        <div class="ticket_and_review_block notcentered">
+        <article>
+        <div class="row">
+            
+            <div>
+                <img class="user-profile" src="/media/{{ user.profile.profile_photo }}" style="margin-right: 50px; margin-left: -20px;">                    
+            </div>
+
+            <div style="margin-right: 250px;">
+                <div class="count">
+                    {% with total_following=following_user.count %}
+                    {{ total_following }} following
+                    {% endwith %}
+                </div>
+                <div style="margin-left: 20px;">
+                    {% for following in following_user %}
+                            <div><a href="">@{{ following.followed_user.username }}</a></div>
+                            <div style="margin-top: 5px; margin-left: 30px;"><a href="{% url 'unfollow' following.followed_user.id %}" class="button unfollow">Unfollow</a></div><br/>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div>
+                <div class="count">
+                    {% with total_followers=followed_by.count %}
+                    {{ total_followers }} follower{% if total_followers > 1 %}{{ total_followers|pluralize }}{% endif %}
+                    {% endwith %}
+                </div>
+                <div style="margin-left: 20px;">
+                    {% for following in followed_by %}
+                        <div><a href="">@{{ following.user.username }}</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        </article>
+        </div>
+
+    
+    <div class="feed_container">LIST OF USERS
+        <div style="margin-top: 15px; margin-left: 10px; font-size: 0.5em; font-style: italic;">(except yourself)</div>
+    </div>
+
+    <div class="users_list">
+        {% for profile in users %}
+            <div class="users_list_unit">
+                <div>
+                    <img class="user-profile" src="/media/{{ profile.profile_photo }}">
+                </div>
+                <div>                
+                    {{ profile.user.username }}
+                    <div style="margin-top: 5px;"><a href="{% url 'follow' profile.user.pk %}" class="button unfollow">Follow</a></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if not user.is_authenticated %}
+
+    <div class="ticket_and_review_block notcentered" style="margin-top: 10px;">
+    <article>
+        <div class="row" style="align-self: center; align-items: center; gap: 150px;">
+            <div><h1>Sign up form</h1></div>
+            
+            <div class="break"></div>
+
+            {% if user_form.errors %}
+                {{ user_form.errors }}
+            {% endif %}
+
+            <div><form method="post" enctype="multipart/form-data">
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                {% csrf_token %}
+                
+                <button type="submit" class="button" style="margin-left: 50px;">Signup</button>
+            </form></div>
+        </div>
+
+    {% else %}
+        <p>You already signed up</p>
+    </article>
+    {% endif %}
+    
+{% endblock content %}

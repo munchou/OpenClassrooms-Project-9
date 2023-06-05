@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="ticket_and_review_block notcentered" style="margin-top: 10px;">
+    <article>
+        <div class="row" style="align-self: center; align-items: center; gap: 100px;">
+            <div style="width:250px;">
+                <h1>Log in</h1>
+                <form method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit" class="button" style="margin-left: 50px;">LOG IN</button>
+                </form>
+            </div>
+
+            <div class="break"></div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; width:250px;">
+                <div style="margin-bottom: 30px;"><h1>Not a member yet?</h1></div>
+                <div><a href="{% url 'signup' %}" class="button">SIGN UP</a></div>
+            </div>
+        </div>
+    </article>
+</div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="feed_container">Change your profile's picture</div>
+<p><i>Your current picture will be erased.</i></p>
+<div class="ticket_and_review_block notcentered">
+  <form method="post" enctype="multipart/form-data">
+    {{ profile_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Save changes" class="button" style="margin-left: 60px;"></p>
+  </form>
+</div>
+
+{% endblock %}
