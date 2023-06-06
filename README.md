@@ -59,7 +59,7 @@ Page de création de compte :
 Page d'accueil (feed de l'utilisateur), où sont affichés les créations dudit utilisateur et celles des autres utilisateurs qu'il suit. Les réponses à ses demandes de critique sont affichées, même si l'auteur de la réponse ne fait pas partie des utilisateurs suivis.
 ![img](explanations_img/03.png)
 
-Page de souscriptions où l'utilisateur peut suivre et cesser de suivre d'autres utilisateurs. Le suivi peut se faire de deux manières différentes : en entrant précisément le nom de l'utilisateur cible puis en cliquent sur le bouton "FOLLOW THAT USER", ou simplement en cliquant sur le bouton "FOLLOW" sous l'image de l'utilisateur cible. A noter que la liste d'utilisateur n'affiche pas l'utilisateur connecté.
+Page de souscriptions où l'utilisateur peut suivre et cesser de suivre d'autres utilisateurs. Le suivi peut se faire de deux manières différentes : en entrant précisément le nom de l'utilisateur cible puis en cliquant sur le bouton "FOLLOW THAT USER", ou simplement en cliquant sur le bouton "FOLLOW" sous l'image de l'utilisateur cible. A noter que la liste d'utilisateur n'affiche pas l'utilisateur connecté.
 ![img](explanations_img/04.png)
 
 Section qui permet à l'utilisateur de voir ses contributions :
