@@ -24,7 +24,7 @@ ou téléchargement du fichier ZIP puis extraction dans un dossier au choix.
 
 ### Pour lancer le programme
 Il faut être dans le dossier où se trouve "manage.py" pour y lancer le serveur local.
-- `python manage.py runserver` ou `python3 main.py`
+- `python manage.py runserver`
 
 ### Pour accéder à l'application
 Dans un navigateur, entrez une de ces 2 adresses:
