@@ -54,26 +54,34 @@ Page de connexion :
 ![img](explanations_img/01.png)
 
 Page de création de compte :
+
 ![img](explanations_img/02.png)
 
 Page d'accueil (feed de l'utilisateur), où sont affichés les créations dudit utilisateur et celles des autres utilisateurs qu'il suit. Les réponses à ses demandes de critique sont affichées, même si l'auteur de la réponse ne fait pas partie des utilisateurs suivis.
+
 ![img](explanations_img/03.png)
 
 Page de souscriptions où l'utilisateur peut suivre et cesser de suivre d'autres utilisateurs. Le suivi peut se faire de deux manières différentes : en entrant précisément le nom de l'utilisateur cible puis en cliquant sur le bouton "FOLLOW THAT USER", ou simplement en cliquant sur le bouton "FOLLOW" sous l'image de l'utilisateur cible. A noter que la liste d'utilisateur n'affiche pas l'utilisateur connecté.
+
 ![img](explanations_img/04.png)
 
 Section qui permet à l'utilisateur de voir ses contributions :
+
 ![img](explanations_img/05.png)
 
 Page 404 personnalisée, exemple qui serait utilisé si l'appli était déployée live :
+
 ![img](explanations_img/06.png)
 
 
 Page de création de ticket (= demande de critique). Tous les champs sont obligatoires :
+
 ![img](explanations_img/07.png)
 
 Page de création de critique. Tous les champs sont obligatoires :
+
 ![img](explanations_img/08.png)
 
 Page de création de critique en réponse à une demande. Tous les champs sont obligatoires :
+
 ![img](explanations_img/09.png)
