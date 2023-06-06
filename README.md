@@ -30,7 +30,6 @@ Il faut être dans le dossier où se trouve "manage.py" pour y lancer le serveur
 Dans un navigateur, entrez une de ces 2 adresses:
 http://127.0.0.1:8000/ ou http://localhost:8000/
 Elles renvoient toutes les 2 à l'appli, mais les utiliser en même temps permet de se connecter avec deux comptes différentes (pratique pour tester user et admin côte à côte).
-- `flake8 --format html --htmldir flake8_report --max-line-length 119 main.py controllers models views`
 
 ### Pour se connecter
 Il y a un admin et 11 utilisateurs.
