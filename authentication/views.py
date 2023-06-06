@@ -3,9 +3,9 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from django.db import IntegrityError
 
+from website import messages
 from .forms import UserRegistrationForm, ProfileUpdateForm, SubscribeForm
 from .models import Profile, UserFollow
 
@@ -28,7 +28,7 @@ def signup_page(request):
                 login(request, new_user)
                 return redirect(settings.LOGIN_REDIRECT_URL)
             else:
-                messages.error(request, "The passwords do not match!")
+                messages.signup_page_error(request)
     else:
         user_form = UserRegistrationForm()
     return render(
@@ -56,9 +56,9 @@ def edit_profile(request):
             except FileNotFoundError:
                 pass
             profile_form.save()
-            messages.success(request, 'Profile updated successfully')
+            messages.edit_profile_success(request)
         else:
-            messages.error(request, 'Error updating your profile')
+            messages.edit_profile_error(request)
     else:
         profile_form = ProfileUpdateForm(
                                     instance=request.user.profile)
@@ -113,10 +113,10 @@ def follow(request, pk):
             if user_to_follow not in following_users:
                 try:
                     UserFollow.objects.create(user=request.user, followed_user=user_to_follow)
-                    messages.success(request, f"Now following {user_to_follow}")
+                    messages.follow_success(request, user_to_follow)
                     break
                 except IntegrityError:
-                    messages.error(request, f"You are already following {user_to_follow}")
+                    messages.follow_error(request, user_to_follow)
                     break
                 
             break
@@ -135,7 +135,7 @@ def unfollow(request, pk):
     pressing its corresponding button."""
     profile = Profile.objects.get(user_id=pk)
     user_to_delete = UserFollow.objects.get(user=request.user, followed_user=profile.user)
-    messages.warning(request, f"You are not following {user_to_delete.followed_user} anymore")
+    messages.unfollow_warning(request, user_to_delete)
     user_to_delete.delete()
 
     frontend_url = request.META.get('HTTP_REFERER')
@@ -151,11 +151,9 @@ def subscribe_textinput(request):
     """Allows the user to follow another user by entering their
     name inside the text field. Shows an error message if the given
     user is already being followed or does not exist."""
-    # form = SubscribeForm()
     users_list = Profile.objects.exclude(user=request.user)
 
     if request.method == "POST":
-        # messages.success(request, "request.method PASSED")
         form = SubscribeForm(request.POST)
         current_user_profile = request.user
         input = request.POST.get('followed_user')
@@ -167,22 +165,22 @@ def subscribe_textinput(request):
                 if input == user.username:
                     user_to_follow = User.objects.get(username=input)
                     if user_to_follow == current_user_profile:
-                        messages.error(request, f"You cannot follow yourself")
+                        messages.subscribe_cannot_follow(request)
                         no_user = False
                         break
                     else:
                         try:
                             UserFollow.objects.create(user=request.user, followed_user=user_to_follow)
-                            messages.success(request, f"Now following {user_to_follow}")
+                            messages.subscribe_success(request, user_to_follow)
                             no_user = False
                             break
                         except IntegrityError:
-                            messages.error(request, f"You are already following {user_to_follow}")
+                            messages.subscribe_already_following(request, user_to_follow)
                             no_user = False
                             break
 
             if no_user:
-                messages.error(request, f"The user {input} does not exist")
+                messages.subscribe_no_user(request, input)
                 form = SubscribeForm()
 
     else:
