@@ -50,29 +50,37 @@ There is one admin and 11 users.
 | pikwoune          |    pass1234    |
 
 Connection page:
+
 ![img](explanations_img/01.png)
 
 Account creation page:
+
 ![img](explanations_img/02.png)
 
 Home page (user's feed), where the user's posts and the users' he follows are displayed. The replies to his review requests are displayed regardless of the fact that the author is being followed by the user or not.
+
 ![img](explanations_img/03.png)
 
 Subscriptions page where the user can follow and stop following other users. Following can be done in two different ways: by precisely typing the target user in the text field and confirming with the "FOLLOW THAT USER" button, or simply by clicking the "FOLLOW" button located below the target user's ppicture. Note that the current user is not displayed in the list of users.
+
 ![img](explanations_img/04.png)
 
 Page that displays the user's posted content:
+
 ![img](explanations_img/05.png)
 
 Customized 404 Page serving as an example as what could be used if the app went live:
+
 ![img](explanations_img/06.png)
 
-
 Creation of Ticket page (= asking for a review). All fields must be filled:
+
 ![img](explanations_img/07.png)
 
 Creation of Review page (= asking for a critic). All fields must be filled:
+
 ![img](explanations_img/08.png)
 
 Reply to a ticket page. All fields must be filled:
+
 ![img](explanations_img/09.png)
