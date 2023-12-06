@@ -4,6 +4,8 @@
 
 _Testé sous Windows 10 et Python 3.10.2_
 
+# Preview
+![url](P9_DjangoWebapp_720p.gif)
 
 # Comankonfè (Windows)
 ### Récupération d'une copie du "dépôt"
